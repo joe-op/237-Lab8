@@ -1,11 +1,11 @@
-// Your name here
+// Joe Opseth
 // CS 237, Spring 2016
 // Lab 8
-// Date
+// 14 April 2016
 #include <iostream>
 #include <list>
 #include <stack>
-// Remember your #includes!
+#include <string>
 using namespace std;
 
 void pause_237(bool have_newline);
@@ -13,19 +13,33 @@ bool is_balanced(string input);
 
 int main()
 {
+
+	cout << "Enter a string to check for balanced parentheses:" << endl;
+	string input_str;
+	cin >> input_str;
+	cout << "String is ..." << endl;
+	if (is_balanced(input_str)) {
+		cout << "balanced" << endl;
+	}
+	else {
+		cout << "unbalanced" << endl;
+	}
+	cout << endl;
+
 	int input;
 	string bad_input;
 	list<int> numbers;
 
 	do {
-		cout << "Enter an integer: ";
+		cout << "Enter an integer (0 to stop): ";
 		cin >> input;
 		if(cin.fail()) {
-			get_line(cin, bad_input);
 			cin.clear();
-			cout << "That's not an integer!!!";
+			getline(cin, bad_input);
+			
+			cout << "That's not an integer!!!" << endl;
 		} else if(input != 0) {
-			list.push_back(input);
+			numbers.push_back(input);
 		} 
 	} while(input != 0);
 
@@ -34,25 +48,6 @@ int main()
 		cout << " " << *i;
 	}
 	cout << endl;
-	
-	
-	
-
-
-
-
-
-	// Part 1:
-	// TODO: make a list of integers
-	// TODO: read numbers into the list in a loop
-	// TODO: traverse and print the list with an iterator.
-
-
-
-	// Part 2:
-	// TODO: implement is_balanced() function.
-	// TODO: read a line of input
-	// TODO: test and print whether the line is balanced.
 
 	pause_237(true);
 	return 0;
@@ -65,13 +60,25 @@ bool is_balanced(string input)
 		char this_char = input[i];
 		if(this_char == '(' || this_char == '[') {
 			chars.push(this_char);
-		} else if(this_char == ')') {
-			if(stack.is_empty()) { ### TODO
+		}
+		else if (this_char == ')') {
+			if (chars.empty() || chars.top() != '(') {
 				return false;
-			} else if(stack
-			
+			}
+			else {
+				chars.pop();
+			}			
+		}
+		else if (this_char == ']') {
+			if (chars.empty() || chars.top() != '[') {
+				return false;
+			}
+			else {
+				chars.pop();
+			} 
+		}
 	}
-	
+	return true;	
 }
 
 void pause_237(bool have_newline)

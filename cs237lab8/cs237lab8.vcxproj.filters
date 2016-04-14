@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="lab8.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="cs237lab8.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
