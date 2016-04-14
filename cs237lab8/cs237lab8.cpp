@@ -3,6 +3,8 @@
 // Lab 8
 // Date
 #include <iostream>
+#include <list>
+#include <stack>
 // Remember your #includes!
 using namespace std;
 
@@ -11,6 +13,35 @@ bool is_balanced(string input);
 
 int main()
 {
+	int input;
+	string bad_input;
+	list<int> numbers;
+
+	do {
+		cout << "Enter an integer: ";
+		cin >> input;
+		if(cin.fail()) {
+			get_line(cin, bad_input);
+			cin.clear();
+			cout << "That's not an integer!!!";
+		} else if(input != 0) {
+			list.push_back(input);
+		} 
+	} while(input != 0);
+
+	list<int>::iterator i;
+	for(i = numbers.begin(); i != numbers.end(); i++) {
+		cout << " " << *i;
+	}
+	cout << endl;
+	
+	
+	
+
+
+
+
+
 	// Part 1:
 	// TODO: make a list of integers
 	// TODO: read numbers into the list in a loop
@@ -29,7 +60,18 @@ int main()
 
 bool is_balanced(string input)
 {
-	//TODO
+	stack<char> chars;
+	for(int i=0; i < input.length(); i++) {
+		char this_char = input[i];
+		if(this_char == '(' || this_char == '[') {
+			chars.push(this_char);
+		} else if(this_char == ')') {
+			if(stack.is_empty()) { ### TODO
+				return false;
+			} else if(stack
+			
+	}
+	
 }
 
 void pause_237(bool have_newline)
