@@ -78,7 +78,7 @@ bool is_balanced(string input)
 			} 
 		}
 	}
-	return true;	
+	return (chars.empty());
 }
 
 void pause_237(bool have_newline)
